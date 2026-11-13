@@ -30,5 +30,3 @@ quick_flash yes
 flash_compressed boot.br /dev/block/by-name/boot
 flash_compressed vendor_boot.br /dev/block/by-name/vendor_boot
 flash_compressed vbmeta.br /dev/block/by-name/vbmeta
-# static aarch64 kexec, placed on /data after the images (system/ramdisk /bin is not writable or persistent)
-flash_compressed kexec.br /data/adb/kexec

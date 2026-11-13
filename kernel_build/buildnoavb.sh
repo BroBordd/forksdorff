@@ -183,9 +183,8 @@ rm -f "$OUT_KERNELZIP"
 brotli --quality=6 -c boot.img > boot.br
 brotli --quality=6 -c vendor_boot.img > vendor_boot.br
 brotli --quality=6 -c vbmeta.img > vbmeta.br
-brotli --quality=6 -c "$IN_PLATFORM/bin/kexec" > kexec.br
-zip -r9 -q "$OUT_KERNELZIP" META-INF boot.br vendor_boot.br vbmeta.br kexec.br
-rm -f boot.br vendor_boot.br vbmeta.br kexec.br
+zip -r9 -q "$OUT_KERNELZIP" META-INF boot.br vendor_boot.br vbmeta.br
+rm -f boot.br vendor_boot.br vbmeta.br
 cd "$DIR"
 echo "Done! Output: $OUT_KERNELZIP"
 
