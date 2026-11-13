@@ -1,11 +1,11 @@
 #!/bin/bash
 # forksdorff build: host deps + toolchain bootstrap, then his stock pipeline (buildnoavb*.sh) and zip.
-# Usage: ./build.sh [e|p]   e = enforcing (default), p = permissive
+# Usage: ./build.sh [e|p]   p = permissive (default), e = enforcing
 set -e
 cd "$(dirname "$(readlink -f "$0")")"
 ROOT=$(pwd)
 PARENT_DIR=$(readlink -f "$ROOT/..")
-VARIANT="${1:-e}"
+VARIANT="${1:-p}"
 case "$VARIANT" in
     e) SCRIPT=buildnoavb.sh ;;
     p) SCRIPT=buildnoavbp.sh ;;
@@ -31,10 +31,18 @@ if [ ! -x "$PARENT_DIR/clang-r450784d/bin/clang" ]; then
     git clone --depth=1 https://gitlab.com/tejas101k/clang-r450784d.git/ "$PARENT_DIR/clang-r450784d"
 fi
 
-# 2. Version tag (his scripts use git describe; fall back if tags are missing, e.g. shallow clone)
+# 2. Version tag: latest tag of this repo, else latest upstream (langsdorffkernel) tag, else "dev".
+#    Override with XY_TAG=... ./build.sh
+latest_tag() { sort -V | tail -n1; }
 if [ -z "$XY_TAG" ]; then
-    XY_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo dev)
+    git fetch --tags --quiet origin 2>/dev/null || true
+    XY_TAG=$(git tag | latest_tag)
 fi
+if [ -z "$XY_TAG" ]; then
+    XY_TAG=$(git ls-remote --tags --refs https://github.com/clangsdorff/langsdorffkernel 2>/dev/null \
+        | sed 's#.*refs/tags/##' | latest_tag)
+fi
+[ -n "$XY_TAG" ] || XY_TAG=dev
 export XY_TAG
 
 # 3. Build + pack (out-of-tree into ./out, zip/tar land in kernel_build/)
