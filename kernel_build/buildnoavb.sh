@@ -200,5 +200,5 @@ cd "$DIR"
 echo "Done! Output: $OUT_KERNELTAR"
 
 echo "Cleaning..."
-rm -f "${OUT_VENDORBOOTIMG}" "${OUT_BOOTIMG}" "$(pwd)/kernel_build/zip/vbmeta.img"
+rm -f "${OUT_VENDORBOOTIMG}" "${OUT_BOOTIMG}"
 kfinish
