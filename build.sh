@@ -53,4 +53,4 @@ export XY_TAG
 echo "[+] Building variant '$VARIANT' ($SCRIPT), tag $XY_TAG"
 bash "$SCRIPT"
 
-ls kernel_build/*_a14.zip
+ls kernel_build/*_a14_*.zip
