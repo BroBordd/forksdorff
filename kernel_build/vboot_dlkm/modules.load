@@ -236,6 +236,7 @@ sec_crash_key.ko
 sec_crash_key_user.ko
 sec_hard_reset_hook.ko
 sec_key_notifier.ko
+sec_volup_recovery.ko
 sec_class.ko
 sec_bootstat.ko
 exynos-bts.ko

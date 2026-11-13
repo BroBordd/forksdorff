@@ -38,6 +38,14 @@ config SEC_KEY_NOTIFIER
 	help
 	  Samsung Key input event notifier
 
+config SEC_VOLUP_RECOVERY
+	tristate "Hold Volume Up at boot to enter recovery (no USB cable)"
+	depends on OF && GPIOLIB
+	default m
+	help
+	  If Volume Up is held when this module loads during boot, reboot
+	  into recovery. Must load after exynos-reboot and sec_reboot.
+
 config SEC_BOOTSTAT
 	tristate "Enable TN Bootstat logging"
 	depends on SEC_EXT
