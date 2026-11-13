@@ -40,8 +40,8 @@ MKBOOTIMG="$(pwd)/kernel_build/mkbootimg/mkbootimg.py"
 MKDTBOIMG="$(pwd)/kernel_build/dtb/mkdtboimg.py"
 AVBTOOL="$(pwd)/kernel_build/avbtool"
 
-OUT_KERNELZIP="$(pwd)/kernel_build/langsdorff${XY_VERSION}_a14.zip"
-OUT_KERNELTAR="$(pwd)/kernel_build/langsdorff${XY_VERSION}_a14.tar"
+OUT_KERNELZIP="$(pwd)/kernel_build/forksdorff${XY_VERSION}_a14.zip"
+OUT_KERNELTAR="$(pwd)/kernel_build/forksdorff${XY_VERSION}_a14.tar"
 OUT_KERNEL="$OUTDIR/arch/arm64/boot/Image"
 OUT_BOOTIMG="$(pwd)/kernel_build/zip/boot.img"
 OUT_VENDORBOOTIMG="$(pwd)/kernel_build/zip/vendor_boot.img"
@@ -51,7 +51,7 @@ BUILD_TOOLS_REPO="https://android.googlesource.com/platform/prebuilts/build-tool
 
 # Kernel-side
 GIT_COMMIT=$(git rev-parse --short HEAD)
-BUILD_ARGS="LOCALVERSION=-langsdorff-${XY_VERSION#@}-${GIT_COMMIT} KBUILD_BUILD_USER=Langsdorff KBUILD_BUILD_HOST=langsdorff"
+BUILD_ARGS="LOCALVERSION=-forksdorff-${XY_VERSION#@}-${GIT_COMMIT} KBUILD_BUILD_USER=Forksdorff KBUILD_BUILD_HOST=forksdorff"
 kfinish() {
     rm -rf "$TMPDIR"
 #    rm -rf "$OUTDIR"
