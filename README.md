@@ -15,7 +15,7 @@
 - Backported f2fs block age extent cache from Linux 6.2, less garbage collection on the eMMC.
 - zram recompression with zstd 1.5.7 and 8-page zsmalloc chains, more apps stay in memory.
 - Multi-gen LRU page cache fix, frequently read app files stay cached.
-- KernelSU-Next v3.4.2 (kprobes based, no SUSFS).
+- Official KernelSU v3.3.1 with SUSFS v2.3.0.
 - Dex touchpad support for OneUI ROMs.
 - Removed firmware checks from check_connection in novatek touchscreen driver to fix 2 seconds delay for RestlessOS treble patchset based GSI's
 - Built-in hook for the `${fps_position}` bug in flagship FOD ports.
@@ -26,7 +26,7 @@
 - Everything in main version, **expect**;
 - CPU & GPU overclock.
 - Floor under the GPU clock ceiling.
-- KernelSU-Next
+- KernelSU & SUSFS
 
 **Recommendation**
 - On One UI ROMs, disabling RAM Plus is recommended for better performance.
@@ -55,7 +55,7 @@
 - Base kernel: [Gabriel2392](https://github.com/Gabriel2392)
 - CPU & GPU Overclock, `${fps_position}` hook, updated sdfat driver: [Gabriel2392](https://github.com/Gabriel2392)
 - Dex touchpad support: [rsuntk](https://github.com/rsuntk)
-- KernelSU-Next: [KernelSU-Next](https://github.com/KernelSU-Next/KernelSU-Next), based on KernelSU by [tiann](https://github.com/tiann/)
+- KernelSU: [tiann](https://github.com/tiann/)
 
 # Download
 - Download (version)**e** for Enforcing, **en** for no overclock & root variant
