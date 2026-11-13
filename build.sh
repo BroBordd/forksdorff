@@ -15,14 +15,14 @@ esac
 # 0. Host dependencies
 export PATH="$PATH:/sbin:/usr/sbin"
 need=""
-for t in pahole brotli zip lz4 cpio zstd depmod mold python2; do
+for t in pahole brotli zip lz4 cpio zstd depmod mold python3; do
     command -v "$t" >/dev/null 2>&1 || need="$need $t"
 done
 if [ -n "$need" ]; then
     echo "[+] Installing missing tools:$need"
     SUDO=""; [ "$(id -u)" -ne 0 ] && SUDO="sudo"
     $SUDO apt-get update -y
-    $SUDO apt-get install -y dwarves libelf-dev brotli zip lz4 cpio zstd kmod mold python2
+    $SUDO apt-get install -y dwarves libelf-dev brotli zip lz4 cpio zstd kmod mold python3
 fi
 
 # 1. Toolchain (kernel_build/buildnoavb*.sh expects it at ../clang-r450784d)
